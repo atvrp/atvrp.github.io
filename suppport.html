@@ -248,6 +248,20 @@
                 <button type="submit">Send Message</button>
             </form>
         </div>
+
+        <form id="supportForm" action="#" onsubmit="event.preventDefault(); handleSubmit();">
+        <script>
+        function handleSubmit() {
+            const discord = document.getElementById('discord').value;
+            const message = document.getElementById('message').value;
+    
+            alert(`Thank you for your message!\nDiscord: ${discord}\nMessage: ${message}`);
+    
+            document.getElementById('supportForm').reset();
+        }
+        </script>
+
+            
     </main>
 
     <footer class="footer">
