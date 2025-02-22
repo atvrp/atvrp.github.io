@@ -1,0 +1,333 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATV Border Roleplay</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: calc(100vh - 180px);
+            padding-bottom: 100px;
+        }
+
+        .content-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .staff-section {
+            margin-top: 2rem;
+        }
+
+        .staff-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .staff-category h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .staff-roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .staff-role {
+            padding: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-content, .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-content {
+                margin-top: 140px;
+                padding: 1rem;
+            }
+
+            .staff-roles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="title">ATV Border Roleplay</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="status.html">Status</a>
+                <a href="support.html">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="content-card">
+            <h1>Welcome to ATV Border Roleplay</h1>
+            
+            <h3>About Us</h3>
+            <p>Welcome to our ATV Camping Roleplay in ERLC! Experience the thrill of off-road adventure and camping in a fun and immersive way. Ride through rough trails, set up your campsite, and enjoy the ultimate camping experience with friends. Join us for an exciting outdoor adventure in ERLC!</p>
+            
+            <h3>Staff Team Structure</h3>
+            
+            <div class="staff-section">
+                <div class="staff-category">
+                    <h4>Ownership Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Owner</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Co-Owner</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Ownership</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Senior Leadership</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Leadership</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Superior Staff</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Chief of Staff</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Staff Overseer</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Staff Supervisor</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Management Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Head Management</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Senior Management</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Management</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Directory Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Director</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Assistant Director</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Deputy Director</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Internal Affairs Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Internal Affairs Management</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Chief of Internal Affairs</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Deputy Chief of Internal Affairs</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Head Internal Affairs</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Senior Internal Affairs</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Internal Affairs</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Community Management</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Community Manager</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Head Community Overseer</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Vice Head Community Overseer</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Community Overseer</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Administration Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Lead Administrator</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Head Administration</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Senior Administration</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Administration</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Administration</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Trial Administrator</div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4>Moderation Team</h4>
+                    <div class="staff-roles">
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Lead Moderation</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Head Moderation</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Senior Moderation</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Moderation</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Junior Moderation</div>
+                        <div class="staff-role">𝐇𝐁:𝐑𝐏 | Trial Moderation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>Made by Wicks (LA | Wickslynx| Support Team)</span>
+            <span>© 2025 Wicks</span>
+            <span>Contact: No email rn.</span>
+        </div>
+    </footer>
+</body>
+</html>
